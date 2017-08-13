@@ -65,6 +65,7 @@ which will determine how the circles will move.
 	    .attr("xlink:href", function(d) {
 	    	return d.Image_path
 	    }) 
+	   
 
 	  var circles = svg.selectAll(".Name")
 	    .data(datapoints)
@@ -76,6 +77,7 @@ which will determine how the circles will move.
 	    .attr("fill", function (d) {
 	    	return "url(#" + d.Name.toLowerCase().replace(/ /g, "-") + ")"
 	    })
+	  
 	    .on('click', function(d) {
 	    	console.log(d)
 	    })
