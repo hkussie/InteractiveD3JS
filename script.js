@@ -1,6 +1,6 @@
 (function () {
-	var width = 500;
-	var height = 500;
+	var width = 700;
+	var height = 600;
 
 	var svg = d3.select("#chart")
 	   .append("svg")
@@ -94,7 +94,5 @@ which will determine how the circles will move.
 	  	  	return d.y
 	  	  })
 	  }
-
 	}    
-
 })();
