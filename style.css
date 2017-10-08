@@ -1,0 +1,37 @@
+#header {
+	text-align: left;
+	font-family: 'Archivo Black', sans-serif;
+	padding-left: 15px;
+}
+
+#logos {
+	text-align: right;
+	padding-top: 15px;
+	padding-right: 25px;
+}
+
+#chart {
+	align-content: center;
+}
+
+#subtext {
+	font-family: 'Poiret One', cursive;
+	padding-left: 15px;
+}
+
+#lowertext {
+	font-family: 'Poiret One', cursive;
+	padding-bottom: : 300px;
+	padding-left: 15px;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
