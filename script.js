@@ -29,12 +29,34 @@ Use d3 force to initiate movement amoungst the bubbles.
 The simulation is a collection of forces, 
 which will determine how the circles will move. 
 */
+   /*
 	var simulation = d3.forceSimulation()
 	  .force("x", d3.forceX(width / 2).strength(0.05))
 	  .force("y", d3.forceY(height / 2).strength(0.05))
 	  .force("collide", d3.forceCollide(function(d){
 	  	return radiusScale(d.GDP);
 	  }))
+    */
+
+    var forceXSeperate = d3.forceX(function(d) {
+    	if (d.GDP > 5.5) {
+            return 250 
+         } else {
+         	return 750
+         }
+         return width / 2 
+       }).strength(0.05)
+
+    var forceXCombine = d3.forceX(width / 2).strength(0.05)
+
+    var forceCollide = d3.forceCollide(function(d) {
+    	return radiusScale(d.GDP) + 1
+    })
+
+    var simulation = d3.forceSimulation()
+       .force("x", forceXCombine)
+       .force("y", d3.forceY(height / 2).strength(0.05))
+       .force("collide", forceCollide)
 
 //To Prevent collision with other data points, use 
 //d3 forceCollide()
@@ -81,6 +103,23 @@ which will determine how the circles will move.
 	    .on('click', function(d) {
 	    	console.log(d)
 	    })
+
+//Add functionality to GDP button 
+//Create onclick function 
+       
+      d3.select("#GDP").on('click', function() {
+      	simulation
+      	  .force("x", forceXSeperate)
+      	  .alphaTarget(0.5)
+      	  .restart()
+      })
+
+      d3.select("#combine").on('click', function() {
+      	simulation
+      	   .force("x", forceXCombine)
+      	   .alphaTarget(0.5)
+      	   .restart()
+      })
 
 	  simulation.nodes(datapoints)
 	    .on('tick', ticked)
