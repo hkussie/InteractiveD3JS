@@ -45,7 +45,7 @@ which will determine how the circles will move.
          	return 750
          }
          return width / 2 
-       }).strength(0.05)
+       }).strength(0.10)
 
     var forceXCombine = d3.forceX(width / 2).strength(0.05)
 
@@ -110,14 +110,14 @@ which will determine how the circles will move.
       d3.select("#GDP").on('click', function() {
       	simulation
       	  .force("x", forceXSeperate)
-      	  .alphaTarget(0.5)
+      	  .alphaTarget(0.25)
       	  .restart()
       })
 
       d3.select("#combine").on('click', function() {
       	simulation
       	   .force("x", forceXCombine)
-      	   .alphaTarget(0.5)
+      	   .alphaTarget(0.25)
       	   .restart()
       })
 
